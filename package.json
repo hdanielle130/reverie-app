@@ -1,0 +1,19 @@
+{
+    "name": "reverierobots",
+    "description": "A robot inventory application",
+    "authors": "Heather Terrell",
+    "version": "1.0.0",
+    "main": "reverie.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "",
+    "repository": {
+        "reverie-app": "https://github.com/hdanielle130/reverie-app.git"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.3",
+        "react": "^16.3.2"
+    }
+}
