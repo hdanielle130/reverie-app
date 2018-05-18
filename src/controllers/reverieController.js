@@ -1,19 +1,18 @@
 'use strict';
 
-
 var mongoose = require('mongoose'),
-    Task = mongoose.model('Tasks');
+    Host = mongoose.model('Hosts');
 
-exports.list_all_tasks = function(req, res) {
-    Task.find({}, function(err, task) {
+exports.list_all_hosts = function(req, res) {
+    Host.find({}, function(err, task) {
         if (err)
             res.send(err);
         res.json(task);
     });
 };
 
-exports.create_a_task = function(req, res) {
-    var new_task = new Task(req.body);
+exports.create_a_host = function(req, res) {
+    var new_task = new Host(req.body);
     new_task.save(function(err, task) {
         if (err)
             res.send(err);
@@ -21,8 +20,8 @@ exports.create_a_task = function(req, res) {
     });
 };
 
-exports.read_a_task = function(req, res) {
-    Task.findById(req.params.taskId, function(err, task) {
+exports.view_a_host = function(req, res) {
+    Host.findById(req.params.taskId, function(err, task) {
         if (err)
             res.send(err);
         res.json(task);
@@ -30,8 +29,8 @@ exports.read_a_task = function(req, res) {
 };
 
 
-exports.update_a_task = function(req, res) {
-    Task.findOneAndUpdate({ _id: req.params.taskId }, req.body, { new: true }, function(err, task) {
+exports.update_a_host = function(req, res) {
+    Host.findOneAndUpdate({ _id: req.params.taskId }, req.body, { new: true }, function(err, task) {
         if (err)
             res.send(err);
         res.json(task);
@@ -39,14 +38,14 @@ exports.update_a_task = function(req, res) {
 };
 
 
-exports.delete_a_task = function(req, res) {
+exports.delete_a_host = function(req, res) {
 
 
-    Task.remove({
+    Host.remove({
         _id: req.params.taskId
     }, function(err, task) {
         if (err)
             res.send(err);
-        res.json({ message: 'Task successfully deleted' });
+        res.json({ message: 'Host successfully deleted' });
     });
 };
